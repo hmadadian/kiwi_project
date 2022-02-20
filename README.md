@@ -124,3 +124,5 @@ arguments:
 - `p`: set True if return interval needed as Integer. (boolean, default value is False)
 
 # How to Run
+
+    python solution.py -c (--csv=) example0.csv -o (--origin=) WIW -d (--destination=) RFZ --bags=1 --return=True
