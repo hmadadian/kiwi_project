@@ -125,4 +125,5 @@ arguments:
 
 # How to Run
 
-    python solution.py -c (--csv=) example0.csv -o (--origin=) WIW -d (--destination=) RFZ --bags=1 --return=True
+    python solution.py -c (--csv=) example0.csv -o (--origin=) WIW -d (--destination=) RFZ [<--bags=1>] [<--return=True>]
+    
