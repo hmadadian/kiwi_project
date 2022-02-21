@@ -125,5 +125,289 @@ arguments:
 
 # How to Run
 
-    python solution.py -c (--csv=) example0.csv -o (--origin=) WIW -d (--destination=) RFZ [<--bags=1>] [<--return=True>]
-    
+    python solution.py -c (--csv=) example.csv -o (--origin=) WIW -d (--destination=) RFZ --bags=1 --return=True
+
+For instance:
+1.Following command execution (without return flight)
+
+    python solution.py -c example0.csv -o WIW -d RFZ
+
+has the following output
+
+    [
+        {
+            "flights": [
+                {
+                    "flight_no": "ZH214",
+                    "origin": "WIW",
+                    "destination": "RFZ",
+                    "departure": "2021-09-01T23:20:00",
+                    "arrival": "2021-09-02T03:50:00",
+                    "base_price": "168.0",
+                    "bag_price": "12",
+                    "bags_allowed": "2"
+                }
+            ],
+            "bags_allowed": "2",
+            "bags_count": "?",
+            "destination": "RFZ",
+            "origin": "WIW",
+            "total_price": 180.0,
+            "travel_time": "4:30:00"
+        },
+        {
+            "flights": [
+                {
+                    "flight_no": "ZH214",
+                    "origin": "WIW",
+                    "destination": "RFZ",
+                    "departure": "2021-09-04T23:20:00",
+                    "arrival": "2021-09-05T03:50:00",
+                    "base_price": "168.0",
+                    "bag_price": "12",
+                    "bags_allowed": "2"
+                }
+            ],
+            "bags_allowed": "2",
+            "bags_count": "?",
+            "destination": "RFZ",
+            "origin": "WIW",
+            "total_price": 180.0,
+            "travel_time": "4:30:00"
+        },
+        {
+            "flights": [
+                {
+                    "flight_no": "ZH214",
+                    "origin": "WIW",
+                    "destination": "RFZ",
+                    "departure": "2021-09-09T23:20:00",
+                    "arrival": "2021-09-10T03:50:00",
+                    "base_price": "168.0",
+                    "bag_price": "12",
+                    "bags_allowed": "2"
+                }
+            ],
+            "bags_allowed": "2",
+            "bags_count": "?",
+            "destination": "RFZ",
+            "origin": "WIW",
+            "total_price": 180.0,
+            "travel_time": "4:30:00"
+        }
+    ]
+
+2.Following command execution (with return flight and bag limitation)
+
+    python solution.py -c example0.csv -o WIW -d RFZ --bags=2 --return=True
+
+has the following output
+
+    [
+        {
+            "flights": [
+                {
+                    "flight_no": "ZH214",
+                    "origin": "WIW",
+                    "destination": "RFZ",
+                    "departure": "2021-09-01T23:20:00",
+                    "arrival": "2021-09-02T03:50:00",
+                    "base_price": "168.0",
+                    "bag_price": "12",
+                    "bags_allowed": "2"
+                }
+            ],
+            "bags_allowed": "2",
+            "bags_count": "?",
+            "destination": "RFZ",
+            "origin": "WIW",
+            "total_price": 180.0,
+            "travel_time": "4:30:00",
+            "return": [
+                {
+                    "flights": [
+                        {
+                            "flight_no": "ZH214",
+                            "origin": "RFZ",
+                            "destination": "WIW",
+                            "departure": "2021-09-02T05:50:00",
+                            "arrival": "2021-09-02T10:20:00",
+                            "base_price": "168.0",
+                            "bag_price": "12",
+                            "bags_allowed": "2"
+                        }
+                    ],
+                    "bags_allowed": "2",
+                    "bags_count": "?",
+                    "destination": "WIW",
+                    "origin": "RFZ",
+                    "total_price": 180.0,
+                    "travel_time": "4:30:00"
+                },
+                {
+                    "flights": [
+                        {
+                            "flight_no": "ZH214",
+                            "origin": "RFZ",
+                            "destination": "WIW",
+                            "departure": "2021-09-05T05:50:00",
+                            "arrival": "2021-09-05T10:20:00",
+                            "base_price": "168.0",
+                            "bag_price": "12",
+                            "bags_allowed": "2"
+                        }
+                    ],
+                    "bags_allowed": "2",
+                    "bags_count": "?",
+                    "destination": "WIW",
+                    "origin": "RFZ",
+                    "total_price": 180.0,
+                    "travel_time": "4:30:00"
+                },
+                {
+                    "flights": [
+                        {
+                            "flight_no": "ZH214",
+                            "origin": "RFZ",
+                            "destination": "WIW",
+                            "departure": "2021-09-10T05:50:00",
+                            "arrival": "2021-09-10T10:20:00",
+                            "base_price": "168.0",
+                            "bag_price": "12",
+                            "bags_allowed": "2"
+                        }
+                    ],
+                    "bags_allowed": "2",
+                    "bags_count": "?",
+                    "destination": "WIW",
+                    "origin": "RFZ",
+                    "total_price": 180.0,
+                    "travel_time": "4:30:00"
+                }
+            ]
+        },
+        {
+            "flights": [
+                {
+                    "flight_no": "ZH214",
+                    "origin": "WIW",
+                    "destination": "RFZ",
+                    "departure": "2021-09-04T23:20:00",
+                    "arrival": "2021-09-05T03:50:00",
+                    "base_price": "168.0",
+                    "bag_price": "12",
+                    "bags_allowed": "2"
+                }
+            ],
+            "bags_allowed": "2",
+            "bags_count": "?",
+            "destination": "RFZ",
+            "origin": "WIW",
+            "total_price": 180.0,
+            "travel_time": "4:30:00",
+            "return": [
+                {
+                    "flights": [
+                        {
+                            "flight_no": "ZH214",
+                            "origin": "RFZ",
+                            "destination": "WIW",
+                            "departure": "2021-09-05T05:50:00",
+                            "arrival": "2021-09-05T10:20:00",
+                            "base_price": "168.0",
+                            "bag_price": "12",
+                            "bags_allowed": "2"
+                        }
+                    ],
+                    "bags_allowed": "2",
+                    "bags_count": "?",
+                    "destination": "WIW",
+                    "origin": "RFZ",
+                    "total_price": 180.0,
+                    "travel_time": "4:30:00"
+                },
+                {
+                    "flights": [
+                        {
+                            "flight_no": "ZH214",
+                            "origin": "RFZ",
+                            "destination": "WIW",
+                            "departure": "2021-09-10T05:50:00",
+                            "arrival": "2021-09-10T10:20:00",
+                            "base_price": "168.0",
+                            "bag_price": "12",
+                            "bags_allowed": "2"
+                        }
+                    ],
+                    "bags_allowed": "2",
+                    "bags_count": "?",
+                    "destination": "WIW",
+                    "origin": "RFZ",
+                    "total_price": 180.0,
+                    "travel_time": "4:30:00"
+                }
+            ]
+        },
+        {
+            "flights": [
+                {
+                    "flight_no": "ZH214",
+                    "origin": "WIW",
+                    "destination": "RFZ",
+                    "departure": "2021-09-09T23:20:00",
+                    "arrival": "2021-09-10T03:50:00",
+                    "base_price": "168.0",
+                    "bag_price": "12",
+                    "bags_allowed": "2"
+                }
+            ],
+            "bags_allowed": "2",
+            "bags_count": "?",
+            "destination": "RFZ",
+            "origin": "WIW",
+            "total_price": 180.0,
+            "travel_time": "4:30:00",
+            "return": [
+                {
+                    "flights": [
+                        {
+                            "flight_no": "ZH214",
+                            "origin": "RFZ",
+                            "destination": "WIW",
+                            "departure": "2021-09-05T05:50:00",
+                            "arrival": "2021-09-05T10:20:00",
+                            "base_price": "168.0",
+                            "bag_price": "12",
+                            "bags_allowed": "2"
+                        }
+                    ],
+                    "bags_allowed": "2",
+                    "bags_count": "?",
+                    "destination": "WIW",
+                    "origin": "RFZ",
+                    "total_price": 180.0,
+                    "travel_time": "4:30:00"
+                },
+                {
+                    "flights": [
+                        {
+                            "flight_no": "ZH214",
+                            "origin": "RFZ",
+                            "destination": "WIW",
+                            "departure": "2021-09-10T05:50:00",
+                            "arrival": "2021-09-10T10:20:00",
+                            "base_price": "168.0",
+                            "bag_price": "12",
+                            "bags_allowed": "2"
+                        }
+                    ],
+                    "bags_allowed": "2",
+                    "bags_count": "?",
+                    "destination": "WIW",
+                    "origin": "RFZ",
+                    "total_price": 180.0,
+                    "travel_time": "4:30:00"
+                }
+            ]
+        }
+    ]
